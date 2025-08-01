@@ -1,0 +1,5 @@
+- controller methods and syntax
+- services and interfaces
+- dtos and mapping
+- generating ts client
+- data validation and global exception handling
