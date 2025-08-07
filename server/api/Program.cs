@@ -1,5 +1,6 @@
 using System.Text.Json;
 using api;
+using api.Etc;
 using api.Services;
 using efscaffold;
 using Microsoft.EntityFrameworkCore;
@@ -36,5 +37,5 @@ app.MapControllers();
 
 app.UseOpenApi();
 app.UseSwaggerUi();
-
+await app.GenerateApiClientsFromOpenApi("/../../client/src/generated-ts-client.ts");
 app.Run();

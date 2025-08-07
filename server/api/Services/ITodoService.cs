@@ -8,4 +8,5 @@ public interface ITodoService
 {
     Task<Todo> CreateTodo(CreateTodoDto dto);
     Task<List<Todo>> GetAllTodos();
+    Task<Todo> ToggleTodo(Todo todo);
 }
