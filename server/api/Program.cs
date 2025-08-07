@@ -6,6 +6,7 @@ using Infrastructure.Postgres.Scaffolding;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,7 @@ builder.Services.AddDbContext<MyDbContext>(conf =>
 });
 
 builder.Services.AddControllers();
+builder.Services.AddOpenApiDocument();
 
 builder.Services.AddCors();
 
@@ -31,5 +33,8 @@ app.UseCors(config => config
     .SetIsOriginAllowed(x => true));
 
 app.MapControllers();
+
+app.UseOpenApi();
+app.UseSwaggerUi();
 
 app.Run();
