@@ -1,6 +1,5 @@
-- controller methods and syntax
-- services and interfaces
-- dtos and mapping
-- generating ts client + openapi / scalar / swagger
-- data validation and global exception handling
+- generating ts client
+- making client UI
+
+- mapping
 - show docs diagrams in relevant places

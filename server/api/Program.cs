@@ -1,19 +1,15 @@
 using System.Text.Json;
 using api;
-using api.Etc;
-using efscaffold.Entities;
-using Infrastructure.Postgres.Scaffolding;
-using Microsoft.AspNetCore.Mvc;
+using api.Services;
+using efscaffold;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var appOptions = builder.Services.AddAppOptions(builder.Configuration);
 
 Console.WriteLine("the app options are: "+JsonSerializer.Serialize(appOptions));
-
+builder.Services.AddScoped<ITodoService, TodoService>();
 builder.Services.AddDbContext<MyDbContext>(conf =>
 {
     conf.UseNpgsql(appOptions.DbConnectionString);
@@ -21,10 +17,14 @@ builder.Services.AddDbContext<MyDbContext>(conf =>
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApiDocument();
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.AddCors();
 
 var app = builder.Build();
+
+app.UseExceptionHandler();
 
 app.UseCors(config => config
     .AllowAnyHeader()
