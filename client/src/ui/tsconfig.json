@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.app.json",
+  "include": ["./**/*"],
+  "references": [{
+    "path": "../core"
+  }, {
+    "path": "../utils"
+  }],
+  "compilerOptions": {
+    "outDir": "../../dist/data",
+    "rootDir": "."
+  }
+}

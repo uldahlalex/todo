@@ -1,5 +1,6 @@
 import {TodoClient} from "./generated-ts-client.ts";
 
+// @ts-ignore
 const isProduction = import.meta.env.PROD;
 
 const prod = "https://server-black-grass-9418.fly.dev";

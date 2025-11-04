@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import {todoClient} from "./baseUrl.ts";
-import type {CreateTodoDto, Todo} from "./generated-ts-client.ts";
+import {todoClient} from "../core/baseUrl.ts";
+import type {CreateTodoDto, Todo} from "../core/generated-ts-client.ts";
 
 function App() {
     
@@ -26,7 +26,7 @@ function App() {
         <button onClick={() => {
             todoClient.createTodo(myForm).then(result => {
                 console.log("hooray that was a success")
-                setTodos([...todos, result])
+                setTodos([...todos, myForm])
             })
         }}>Create new todo</button>
         
@@ -37,10 +37,6 @@ function App() {
                 return <div key={t.id}>
                     <input type="checkbox" checked={t.isdone} onChange={async () => {
                         const result = await todoClient.toggleDone(t);
-                        const index = todos.indexOf(t);
-                        const duplicate = [...todos];
-                        duplicate[index] = result;
-                        setTodos(duplicate);
                     }} />
                     {JSON.stringify(t)}
                 </div>
