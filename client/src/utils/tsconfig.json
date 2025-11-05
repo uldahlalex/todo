@@ -1,5 +1,8 @@
 
 {
   "extends": "../../tsconfig.settings.json",
-  "references": [{"path": "../core"}]
+  "include": ["**/*.ts", "**/*.tsx", "../vite-env.d.ts"],
+  "references": [{
+    "path": "../core"
+  }]
 }
