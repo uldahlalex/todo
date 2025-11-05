@@ -1,13 +1,10 @@
+
 {
-  "extends": "../../tsconfig.app.json",
-  "include": ["./**/*"],
+  "extends": "../../tsconfig.settings.json",
+  "include": ["**/*.ts", "**/*.tsx", "../vite-env.d.ts"],
   "references": [{
     "path": "../core"
   }, {
     "path": "../utils"
-  }],
-  "compilerOptions": {
-    "outDir": "../../dist/data",
-    "rootDir": "."
-  }
+  }]
 }

@@ -1,9 +1,4 @@
+
 {
-  "extends": "../../tsconfig.app.json",
-  "include": ["./**/*"],
-  "references": [],
-  "compilerOptions": {
-    "outDir": "../../dist/data",
-    "rootDir": "."
-  }
+  "extends": "../../tsconfig.settings.json"
 }

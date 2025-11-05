@@ -1,11 +1,5 @@
+
 {
-  "extends": "../../tsconfig.app.json",
-  "include": ["./**/*"],
-  "references": [{
-    "path": "../core"
-  }],
-  "compilerOptions": {
-    "outDir": "../../dist/data",
-    "rootDir": "."
-  }
+  "extends": "../../tsconfig.settings.json",
+  "references": [{"path": "../core"}]
 }
